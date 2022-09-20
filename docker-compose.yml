@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: postgres_database
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    restart: always
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: noemail@noemail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 5050:80 
+    restart: always
+
+  backend:
+    container_name: backend
+    image: f1le47/severyanochka-backend
+    environment:
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASS: root
+      DB_HOST: db
+      DB_PORT: 5432
+    ports:
+      - 5000:5000
+    restart: always
+
+  frontend:
+    container_name: frontend
+    image: f1le47/severyanochka-frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+      REACT_APP_STATIC_URL: http://localhost:5000/
+    ports:
+      - 3000:3000
+    restart: always
