@@ -15,11 +15,11 @@ My name is Matvey and this is my docker-compose files for start pet-project
 
 ### How to view the application
 
-The application will now be available at [localhost:3000](http://localhost:3000/)
-You can also look at the database through the DBMS at [localhost:5050](http://localhost:5050/)
-Email for pg admin - noemail@noemail.com
-Password for pg admin - root
-Password for database - root
+1. The application will now be available at [localhost:3000](http://localhost:3000/)
+2. You can also look at the database through the DBMS at [localhost:5050](http://localhost:5050/)
+   Email for pg admin - noemail@noemail.com
+   Password for pg admin - root
+   Password for database - root
 
 ## [FRONTEND](https://github.com/f1le47/severyanochka-frontend)
 
